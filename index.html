@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="buttons.css">
+        <link rel="stylesheet" href="input.css">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://unpkg.com/vue"></script>
+        <title>POMODORO</title>
+    </head>
+    <body>
+        <header>
+            <h1>POMODORO TIMER</h1>
+        </header>
+        <section id="control">
+        <ul id="numbers">
+            <li>
+            <input type="number" v-model="work" placeholder="WORK" @change="workChange()" required>
+            </li>
+            <li>
+            <input type="number" v-model="rest" placeholder="REST" @change="restChange()" required>
+            </li>
+        </ul>
+        <ul id="buttons">
+            <li id="reset">
+                <main>
+                    <button @click="reset()">
+                        <div class='layer'>{{ state }}</div>
+                        Reset
+                    </button>
+                </main>
+            </li>
+            <li id="switchState">
+                <main>
+                    <button @click="switchState()">
+                        <div class='layer'>{{ nextState }}</div>
+                        Switch
+                    </button>
+                </main>
+            </li>
+        </ul>
+        </section>
+        <div id="rings">
+            <div id="first-ring">
+                <div id="second-ring">
+                    <div id="third-ring">
+                    </div>
+                </div>
+            </div>
+
+            <div id="ring-content">
+                <div class="container active" @click="start();">
+                    <div class="value">
+                        <span>{{ min }}</span> : <span>{{ sec }}</span><br/><span style="line-height:5px; font-size: 22px;">{{ state }}</span>
+                        <p :style="typeColor" @change="test()">{{ type }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+    <script src="index.js"></script>
+</html>

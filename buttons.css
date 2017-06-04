@@ -22,6 +22,7 @@ button {
 .layer {
   color: #fff;
   position: absolute;
+  font-weight: bold;
   top: -70px;
   width: 100%;
   left: 0;
